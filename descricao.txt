@@ -1,0 +1,22 @@
+12. Análise de Dados de Redes Sociais para Detecção de Comportamento Suspeito
+Extração (E):
+Fontes de dados: Twitter API, Facebook Graph API, Instagram API, Reddit API, dados de fóruns online e outras plataformas públicas, respeitando os termos de serviço e políticas de privacidade.
+Técnicas: Coleta de dados via APIs, web scraping, processamento de dados em streaming, anonimização e proteção de dados sensíveis.
+Python: Tweepy, Facebook SDK, Instaloader, PRAW (para Reddit), BeautifulSoup, Scrapy, Kafka Python client, técnicas de anonimização de dados.
+Transformação (T):
+Limpeza: Remoção de stop words, caracteres especiais, links, emojis, identificação e remoção de spams e bots.
+Pré-processamento: Tokenização, lematização/stemming, identificação de entidades nomeadas (NER), análise de sentimento, detecção de linguagem ofensiva ou discurso de ódio.
+Feature Engineering: Criação de embeddings de palavras (Word2Vec, GloVe, BERT), representação de texto (TF-IDF, bag-of-words), classificação de intenções, extração de entidades, análise de redes sociais (grafos de usuários, comunidades).
+Python: NLTK, spaCy, Gensim, scikit-learn, TensorFlow, Keras, PyTorch, Hugging Face Transformers, NetworkX.
+Carregamento (L):
+Bancos de dados: Elasticsearch, Apache Cassandra, MongoDB, Neo4j (para análise de grafos).
+Técnicas: Indexação e busca de texto completo, armazenamento distribuído, suporte a consultas complexas, análise de grafos.
+Python: Elasticsearch client, Cassandra driver, PyMongo, Neo4j driver.
+IA:
+Modelos: Classificação de texto (Naive Bayes, SVM, redes neurais), detecção de anomalias (Isolation Forest, autoencoders), modelos de aprendizado não supervisionado para identificação de padrões de comportamento suspeito, análise de redes sociais para detecção de comunidades e influenciadores.
+Python: scikit-learn, TensorFlow, Keras, PyTorch, NetworkX.
+Análise comparativa:
+Cenário 1: Carregamento em lote em um banco de dados relacional (PostgreSQL, MySQL) com extensão para busca de texto completo.
+Cenário 2: Carregamento em um motor de busca especializado (Elasticsearch) ou em um banco de dados de grafos (Neo4j).
+Métricas: Tempo de carregamento, tempo de processamento, custo de armazenamento, escalabilidade, relevância dos resultados de busca, capacidade de análise de redes.
+Arquivo CSV auxiliar: social_media_posts.csv (post_id, user_id, text, timestamp, platform, language, sentiment, entities)
