@@ -29,11 +29,17 @@ df = pd.read_csv("geracao_usina_por_tipo.csv")
 # Criar uma lista de tipos de usina únicos
 tipos_de_usina = df['TIPO_DE_USINA'].unique()
 
+mes_visualizado = df['MES'].unique()
+
 # Adicionar um filtro de seleção de tipo de usina
 tipo_selecionado = st.multiselect('Selecione o Tipo de Usina', tipos_de_usina, default=tipos_de_usina)
 
+mes_selecionado = st.multiselect('Selecione o Mês a ser visualizado', mes_visualizado, default=mes_visualizado)
+
 # Filtrar o DataFrame com base na seleção
 df_filtrado = df[df['TIPO_DE_USINA'].isin(tipo_selecionado)]
+
+df_filtrado_mes = df[df['MES'].isin(mes_selecionado)]
 
 # Criar um gráfico de barras para visualizar o custo por tipo de energia a cada mês
 plt.figure(figsize=(12, 6))
