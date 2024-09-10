@@ -8,6 +8,10 @@ df = pd.read_csv("geracao_usina_por_tipo.csv")
 # Substituir valores NaN por 0 ou outro valor apropriado
 df.fillna(0, inplace=True)
 
+# Verificar os dados carregados
+st.write("### Dados Carregados")
+st.write(df.head())
+
 # Criar uma lista de tipos de usina únicos
 tipos_de_usina = df['TIPO_DE_USINA'].unique()
 
@@ -24,6 +28,10 @@ mes_selecionado = st.multiselect('Meses', mes_visualizado, default=mes_visualiza
 
 # Filtrar o DataFrame com base na seleção
 df_filtrado = df[(df['TIPO_DE_USINA'].isin(tipo_selecionado)) & (df['MES'].isin(mes_selecionado))]
+
+# Verificar os dados filtrados
+st.write("### Dados Filtrados")
+st.write(df_filtrado.head())
 
 # Preparar os dados para o gráfico
 data = []
