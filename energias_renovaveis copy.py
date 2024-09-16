@@ -15,9 +15,6 @@ df = pd.read_csv("geracao_usina_grafico.csv")
 # Substituir valores NaN por 0 ou outro valor apropriado
 df.fillna(0, inplace=True)
 
-# Formatação dos valores em milhões de reais
-df['VALOR_PARA_GERAR_R$'] = df['VALOR_PARA_GERAR_R$'] / 1e6
-
 # Criar uma lista de tipos de usina únicos
 tipos_de_usina = df['TIPO_DE_USINA'].unique()
 
@@ -65,6 +62,12 @@ def create_stacked_line_chart(df):
             "data": data['VALOR_PARA_GERAR_R$'].tolist()
         })
     options = {
+        "tooltip": {  # maneira que os dados serão exibidos ao passar o mouse sobre
+            "trigger": "axis",
+            "axisPointer": {
+                "type": "cross"
+            }
+        },
         "xAxis": {"type": "category", "data": df['MES'].unique().tolist()},
         "yAxis": {"type": "value", "name": "Milhões de R$"},
         "series": series
@@ -104,7 +107,13 @@ def create_grouped_bar_chart(df):
             "itemStyle": {"color": colors.get(tipo, 'rgb(0, 0, 0)')}
         })
     options = {
-        "xAxis": {"type": "category", "data": sorted(mes_visualizado.tolist())},
+        "tooltip": {  # maneira que os dados serão exibidos ao passar o mouse sobre
+            "trigger": "axis",
+            "axisPointer": {
+                "type": "cross"
+            }
+        },
+        "xAxis": {"type": "category", "data": df['MES'].unique().tolist()},
         "yAxis": {"type": "value", "name": "Milhões de R$"},
         "series": series
     }
@@ -124,11 +133,18 @@ def create_area_chart(df):
             "data": data['VALOR_PARA_GERAR_R$'].tolist()
         })
     options = {
+        "tooltip": {  # maneira que os dados serão exibidos ao passar o mouse sobre
+            "trigger": "axis",
+            "axisPointer": {
+                "type": "cross"
+            }
+        },
         "xAxis": {"type": "category", "data": df['MES'].unique().tolist()},
         "yAxis": {"type": "value", "name": "Milhões de R$"},
         "series": series
     }
     st_echarts(options=options, height="400px")
+
 
 # Função para carregar e filtrar a tabela geracao_usina_agrupado.csv
 def load_and_filter_table():
@@ -140,7 +156,7 @@ def load_and_filter_table():
     
     # Exibir a tabela filtrada
     st.write("## Tabela de Geração de Energia")
-    st.dataframe(df_agrupado)
+    st.dataframe(df_agrupado, height=500, width=2000)
 
 # Layout do Streamlit
 st.title("Dashboard de Geração de Energia")
@@ -163,8 +179,9 @@ create_line_chart(df_filtrado, 'FOTOVOLTAICA', 'rgb(255, 255, 0)')
 st.header("Gráfico de Linha Empilhado")
 create_stacked_line_chart(df_filtrado)
 
-st.header("Gráficos de Barras")
+st.header("Gráficos de Barras com valor Total")
 create_bar_chart(df_filtrado)
+st.header("Gráficos de Barras com valor individual")
 create_grouped_bar_chart(df_filtrado)
 
 st.header("Gráfico de Área")
