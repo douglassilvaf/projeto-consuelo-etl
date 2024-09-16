@@ -4,8 +4,7 @@ Claro! Vamos planejar as etapas do seu projeto de ETL focado em energia renováv
 
 #### **1. Extração de Dados (E)**
 **Fontes de Dados:**
-- Dados de geração e consumo de energia (ANEEL, ONS, Irena)
-- Dados meteorológicos (INMET, CPTEC)
+- Dados de geração e consumo de energia (ANEEL, ONS)
 
 **Técnicas e Ferramentas:**
 - **Scraping e APIs:** `requests`, `Beautiful Soup`
