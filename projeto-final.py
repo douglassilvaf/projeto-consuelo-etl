@@ -1,14 +1,14 @@
-import urllib3
 import requests
+import urllib3
 import pandas as pd
 import numpy as np
 import io
 
-# Desativar avisos de segurança
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+# URLs dos arquivos CSV
 base_url = "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2024_0"
-file_urls = [f"{base_url}{i}.csv" for i in range(1, 10)]
+file_urls = [f"{base_url}{i}.csv" for i in range(1, 9)]
 
 def download_and_load_csv(url):
     response = requests.get(url, verify=False)
@@ -36,6 +36,7 @@ all_data = all_data.rename(columns={
     'VAL_GERACAO': 'VALOR_PARA_GERAR'
 })
 all_data = all_data[['MES', 'ESTADO', 'REGIAO', 'TIPO_DE_USINA', 'VALOR_PARA_GERAR']]
+
 all_data.to_csv('geracao_usina_por_tipo.csv', index=False)
 
 print(all_data.head(10))
