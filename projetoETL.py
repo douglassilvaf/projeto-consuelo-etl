@@ -16,6 +16,8 @@ def download_and_load_csv(url):
     df = pd.read_csv(io.StringIO(data), sep=';')
     mes = url.split('/')[-1].split('.')[0][-1]
     df['MES'] = mes
+    print(df.head(2))
+    print()
     return df
 
 dataframes = []
@@ -27,6 +29,8 @@ for arquivo in dataframes:
     arquivo.columns = arquivo.columns.str.upper()
 
 all_data = pd.concat(dataframes, ignore_index=True)
+
+# Modificar o DataFrame conforme necessário
 all_data = all_data.drop(columns=['DIN_INSTANTE', 'ID_SUBSISTEMA', 'ID_ESTADO', 'COD_MODALIDADEOPERACAO', 'NOM_TIPOCOMBUSTIVEL', 'ID_ONS', 'CEG'])
 all_data = all_data.rename(columns={
     'NOM_SUBSISTEMA': 'REGIAO',
@@ -36,6 +40,8 @@ all_data = all_data.rename(columns={
 })
 all_data = all_data[['MES', 'ESTADO', 'REGIAO', 'TIPO_DE_USINA', 'VALOR_PARA_GERAR']]
 
+# Salvar o DataFrame modificado em um novo arquivo CSV
 all_data.to_csv('geracao_usina_por_tipo.csv', index=False)
 
+# Imprimir as primeiras 10 linhas do DataFrame modificado
 print(all_data.head(10))
