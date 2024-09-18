@@ -1,0 +1,43 @@
+Apôs somente a etapa de extração, tivemos.
+4046233 linhas e 13 colunas.
+
+Apôs o tratamento reduzimos para:
+742 linhas e 5 colunas.
+
+Para gerar o gráfico decidimos por não usar as colunas estado e regiao e acrescentamos uma coluna com os valores calculados p
+em arte por milhao ou ppm, ficando a tabela com:
+41 linhas e 4 colunas.
+
+bibliotecas usadas:
+
+import requests
+import urllib3
+import pandas as pd
+import io
+import streamlit as st
+from streamlit_echarts import st_echarts
+
+função das bibliotecas:
+
+Aqui está uma explicação do uso de cada biblioteca:
+
+1. **`requests`**:
+Eu a utilizei para baixa o contéudo através da url com requests.get() e utilizei juntamente o parâmetro verify=False, para pular a verificação de SSL.
+
+2. **`urllib3`**:
+Ela é usada com `urllib3.disable_warnings()` para desativar os avisos relacionados à verificação de certificados inseguros, 
+pois o parâmetro `verify=False` foi passado na função `requests.get()`.
+
+3. **`pandas`**:
+
+Com ela fiz o CRUD(criei, li, atualizei e deletei) de informações e arquivos csv ou DataFrames, também juntei arquivos, pois a planilha
+principal e formada pela soma de todos os meses acessados.
+
+4. **`io`**:
+usei `io.StringIO(data)` para converter o texto baixado via `requests` em um formato que pode ser lido como arquivo.
+
+5. **`streamlit`**:
+usei para criar a interface interativa para o usuário
+
+6. **`streamlit_echarts`**:
+usei para renderezar os gráficos com ricas informações e dinamismo.
