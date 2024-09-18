@@ -1,5 +1,4 @@
 import pandas as pd
-from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 # Carregar o arquivo CSV
 df = pd.read_csv("geracao_usina_agrupado.csv")
