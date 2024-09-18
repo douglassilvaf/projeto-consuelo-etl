@@ -1,7 +1,6 @@
 import requests
 import urllib3
 import pandas as pd
-import numpy as np
 import io
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
