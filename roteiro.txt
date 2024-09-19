@@ -1,0 +1,24 @@
+### Roteiro de Apresentação do Projeto ETL de Energia Renovável (5 minutos)
+
+#### 1. Apresentação do Grupo (1% = 3 segundos)
+“Somos uma equipe de desenvolvedores de dados focados em otimizar processos de coleta e análise de dados no setor energético.”
+
+#### 2. O Problema a Ser Resolvido (9% = 27 segundos)
+“O setor de energia renovável enfrenta o desafio de gerenciar e analisar grandes volumes de dados provenientes de diversas fontes públicas. A dificuldade em organizar, limpar e visualizar essas informações impede decisões estratégicas rápidas e eficazes no planejamento energético.”
+
+#### 3. Abordagem Adotada (30% = 90 segundos)
+“Para solucionar o problema, utilizamos o processo ETL (Extração, Transformação e Carregamento):
+- **Extração**: Coletamos dados brutos de energia renovável do Operador Nacional do Sistema Elétrico (ONS).
+- **Transformação**: Realizamos a limpeza dos dados, removendo colunas irrelevantes e criando novas variáveis para facilitar a análise. A conversão dos dados de MWH para reais também foi incluída.
+- **Carregamento**: Organizamos os dados para visualização e análise, permitindo seu carregamento em um ambiente visual interativo.”
+
+#### 4. A Solução Desenvolvida (60% = 180 segundos)
+“O projeto final resultou em uma plataforma de visualização de dados desenvolvida com **Streamlit**, permitindo aos usuários explorar os dados energéticos de forma interativa. Através da redução de milhões de linhas para um conjunto sintético com 41 linhas e 4 colunas, garantimos que os dados fossem mais acessíveis e visuais.
+
+A interface gráfica fornece insights sobre a produção de energia ao longo do tempo, com gráficos dinâmicos desenvolvidos com `streamlit_echarts`. Usamos bibliotecas como `pandas` para manipulação de dados e `boto3` para integração com a AWS, garantindo escalabilidade.
+
+**Resultados e Aprendizados**: Concluímos que a automatização do processo ETL melhora a eficiência na análise de dados complexos de energia. Conseguimos tornar os dados mais claros e acessíveis, ajudando na tomada de decisões estratégicas. Aprendemos a integrar tecnologias que aumentam a eficiência de análise e visualização.”
+
+---
+
+Esse roteiro segue a fórmula proposta, equilibrando a explicação do problema, abordagem ETL e solução desenvolvida, com destaque para os resultados.
