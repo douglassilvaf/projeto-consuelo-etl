@@ -22,21 +22,3 @@ print(resultado)
 
 # Salvar o DataFrame resultado em um novo arquivo CSV
 resultado.to_csv("geracao_usina_grafico.csv", index=False)
-
-# Função para contar o número de linhas e colunas em um arquivo CSV
-def contar_linhas_colunas(nome_arquivo):
-    with open(nome_arquivo, mode='r', newline='', encoding='utf-8') as arquivo_csv:
-        leitor_csv = csv.reader(arquivo_csv)
-        linhas = list(leitor_csv)
-        num_linhas = len(linhas)
-        num_colunas = len(linhas[0]) if num_linhas > 0 else 0
-        return num_linhas, num_colunas
-
-# Nome do arquivo CSV
-nome_arquivo = 'geracao_usina_grafico.csv'
-
-# Contar linhas e colunas
-linhas, colunas = contar_linhas_colunas(nome_arquivo)
-
-# Imprimir o resultado
-print(f'O arquivo {nome_arquivo} tem {linhas} linhas e {colunas} colunas.')
