@@ -91,7 +91,7 @@ def create_bar_chart(df):
 def create_grouped_bar_chart(df):
     types = df['TIPO_DE_USINA'].unique()
     colors = {
-        'EOLIELÉTRICA': 'rgb(255, 255, 255)',
+        'EOLIELÉTRICA': 'rgb(0, 100, 0)',
         'FOTOVOLTAICA': 'rgb(255, 255, 0)',
         'HIDROELÉTRICA': 'rgb(0, 0, 255)',
         'NUCLEAR': 'rgb(255, 0, 0)',
@@ -161,8 +161,8 @@ def load_and_filter_table():
 # Layout do Streamlit
 st.title("Dashboard de Geração de Energia")
 
-st.markdown("<h2 style='color: rgb(255, 255, 255);'>Gráficos de Linha Eolielétrica</h2>", unsafe_allow_html=True)
-create_line_chart(df_filtrado, 'EOLIELÉTRICA', 'rgb(255, 255, 255)')
+st.markdown("<h2 style='color: rgb(0, 100, 0);'>Gráficos de Linha Eolielétrica</h2>", unsafe_allow_html=True)
+create_line_chart(df_filtrado, 'EOLIELÉTRICA', 'rgb(0, 100, 0)')
 
 st.markdown("<h2 style='color: rgb(0, 0, 255);'>Gráficos de Linha Hidroelétrica</h2>", unsafe_allow_html=True)
 create_line_chart(df_filtrado, 'HIDROELÉTRICA', 'rgb(0, 0, 255)')
