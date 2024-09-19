@@ -1,5 +1,3 @@
-Ótimo! Agora que você esclareceu os pontos principais do projeto, vamos organizar o **README** de forma estruturada, com seções que abordam os objetivos, explicações sobre o uso, instalação e outras informações essenciais. Aqui está o modelo final:
-
 ---
 
 # Análise de Dados de Energia Renovável - Projeto ETL com Visualização
@@ -31,8 +29,11 @@ Este projeto foi desenvolvido com o objetivo principal de realizar o processo de
   - `urllib3`: Desabilitação de avisos de certificados SSL.
   - `pandas`: Manipulação e transformação de dados.
   - `io`: Conversão de texto para arquivos manipuláveis com `pandas`.
+  - `boto3`: Usada para se conectar ao Amazon S3 e realizar o upload do arquivo especificado para o bucket escolhido..
   - `streamlit`: Interface de visualização dos dados.
   - `streamlit_echarts`: Criação de gráficos dinâmicos e interativos.
+  
+  boto3 
 
 ## Instalação
 
@@ -70,38 +71,39 @@ Se o seu projeto está dividido em vários códigos separados para cada etapa, i
 O projeto está organizado em **múltiplos scripts**, onde cada etapa do processo de ETL e visualização dos dados é separada em um arquivo Python distinto:
 
 - [EXTRAÇÃO](https://github.com/douglassilvaf/projeto-consuelo-etl/blob/main/projetoETL.py) Responsável pela **extração** dos dados brutos a partir das fontes fornecidas.
-- [TRATAMENTO](https://github.com/douglassilvaf/projeto-consuelo-etl/blob/main/PETLA-grafico.py): Realiza o **tratamento** dos dados, incluindo limpeza, padronização e a criação de colunas calculadas, como a conversão de MWH para R$.
+- [TRATAMENTO](https://github.com/douglassilvaf/projeto-consuelo-etl/blob/main/ProjetoETL-agrupamento.py): Realiza o **tratamento** dos dados, incluindo limpeza, padronização de colunas.
+- [TRATAMENTO FINAL](https://github.com/douglassilvaf/projeto-consuelo-etl/blob/main/PETLA-GRAFICO.py): Realiza o **tratamento** dos dados, criando colunas calculadas, como a conversão de MWH para R$.
+- [CARREGAMENTO](https://github.com/douglassilvaf/projeto-consuelo-etl/blob/main/carregamentoETL.py): Implementa a fase de **carregamento** dos dados tratados para o banco de dados AWS.
 - [VISUALIZAÇÃO](https://github.com/douglassilvaf/projeto-consuelo-etl/blob/main/site_conjunto_de_grafico.py): Script que gera a interface visual e **exibe gráficos interativos** utilizando `streamlit` e `streamlit_echarts`.
-- `carregamento_dados.py`: Implementa a fase de **carregamento** dos dados tratados para o banco de dados AWS.
 
-Os scripts podem ser executados individualmente conforme a necessidade, seguindo a ordem de **extração**, **tratamento**, **carregamento** e, por fim, **visualização**.
+Os scripts podem ser executados individualmente conforme a necessidade, seguindo a ordem de **extração**, **tratamento**, **tratamento final**, **carregamento** e, por fim, **visualização**.
 
 ### Como Executar Cada Etapa
 
 1. **Extração de Dados**:
    ```bash
-   python extracao_dados.py
+   python projetoETL.py
    ```
 2. **Tratamento dos Dados**:
    ```bash
-   python tratamento_dados.py
+   python ProjetoETL-agrupamento.py
+   ```
+2. **Tratamento Final**:
+   ```bash
+   python PETLA-grafico.py
    ```
 3. **Carregamento dos Dados para AWS**:
    ```bash
-   python carregamento_dados.py
+   python carregamentoETL.py
    ```
 4. **Visualização dos Dados**:
    ```bash
-   streamlit run visualizacao_dados.py
+   streamlit run site_conjunto_de_grafico.py
    ```
 
 ---
 
-Com essa organização, fica claro para o usuário que as etapas do projeto estão divididas em scripts separados, e ele saberá exatamente como executar cada parte.
-
 ## Uso das Bibliotecas
-
-Aqui estão as funções principais de cada biblioteca utilizada:
 
 1. **`requests`**: Realiza download de arquivos CSV diretamente das fontes de dados com o método `requests.get()`.
 2. **`urllib3`**: Desativa os avisos de verificação SSL usando `urllib3.disable_warnings()`.
@@ -119,5 +121,3 @@ Este projeto demonstra como trabalhar com grandes volumes de dados de energia re
 - [Repositório no GitHub](https://github.com/seu_usuario/projeto-energia-renovavel) - Acesse o código-fonte completo deste projeto.
 
 ---
-
-Com esse **README**, outros usuários terão uma visão clara de como o projeto foi realizado e poderão reproduzir os resultados facilmente. Se precisar de mais ajustes ou incluir outras informações, me avise!
