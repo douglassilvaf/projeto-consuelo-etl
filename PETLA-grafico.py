@@ -14,8 +14,6 @@ resultado = df.groupby(['MES', 'TIPO_DE_USINA']).sum().reset_index()
 custo_mwh = 67.70
 
 resultado['VALOR_PARA_GERAR_R$'] = (resultado['VALOR_PARA_GERAR'] * custo_mwh)/1000000.00
-# Remover linhas onde a coluna 'MES' tem o valor '9'
-resultado = resultado[resultado['MES'] != '9']
 
 # Exibir o DataFrame resultado
 print(resultado)
