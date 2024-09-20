@@ -72,7 +72,7 @@ O projeto está organizado em **múltiplos scripts**, onde cada etapa do process
 - [TRATAMENTO](https://github.com/douglassilvaf/projeto-consuelo-etl/blob/main/ProjetoETL-agrupamento.py): Realiza o **tratamento** dos dados, incluindo limpeza, padronização de colunas.
 - [TRATAMENTO FINAL](https://github.com/douglassilvaf/projeto-consuelo-etl/blob/main/PETLA-GRAFICO.py): Realiza o **tratamento** dos dados, criando colunas calculadas, como a conversão de MWH para R$.
 - [CARREGAMENTO](https://github.com/douglassilvaf/projeto-consuelo-etl/blob/main/carregamentoETL.py): Implementa a fase de **carregamento** dos dados tratados para o banco de dados AWS.
-- [VISUALIZAÇÃO](https://github.com/douglassilvaf/projeto-consuelo-etl/blob/main/site_conjunto_de_grafico.py): Script que gera a interface visual e **exibe gráficos interativos** utilizando `streamlit` e `streamlit_echarts`.
+- [VISUALIZAÇÃO](https://github.com/douglassilvaf/projeto-consuelo-etl/blob/main/site_conjunto_de_graficos.py): Script que gera a interface visual e **exibe gráficos interativos** utilizando `streamlit` e `streamlit_echarts`.
 
 Os scripts podem ser executados individualmente conforme a necessidade, seguindo a ordem de **extração**, **tratamento**, **tratamento final**, **carregamento** e, por fim, **visualização**.
 
