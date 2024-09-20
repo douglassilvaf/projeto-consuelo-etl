@@ -92,7 +92,7 @@ def create_grouped_bar_chart(df):
     types = df['TIPO_DE_USINA'].unique()
     colors = {
         'EOLIELÉTRICA': 'rgb(0, 100, 0)',
-        'FOTOVOLTAICA': 'rgb(255, 255, 0)',
+        'FOTOVOLTAICA': 'rgb(160, 32, 240)',
         'HIDROELÉTRICA': 'rgb(0, 0, 255)',
         'NUCLEAR': 'rgb(255, 0, 0)',
         'TÉRMICA': 'rgb(255, 165, 0)'
@@ -173,8 +173,8 @@ create_line_chart(df_filtrado, 'NUCLEAR', 'rgb(255, 0, 0)')
 st.markdown("<h2 style='color: rgb(255, 165, 0);'>Gráficos de Linha Térmica</h2>", unsafe_allow_html=True)
 create_line_chart(df_filtrado, 'TÉRMICA', 'rgb(255, 165, 0)')
 
-st.markdown("<h2 style='color: rgb(255, 255, 0);'>Gráficos de Linha Fotovoltaica</h2>", unsafe_allow_html=True)
-create_line_chart(df_filtrado, 'FOTOVOLTAICA', 'rgb(255, 255, 0)')
+st.markdown("<h2 style='color: rgb(160, 32, 240);'>Gráficos de Linha Fotovoltaica</h2>", unsafe_allow_html=True)
+create_line_chart(df_filtrado, 'FOTOVOLTAICA', 'rgb(160, 32, 240)')
 
 st.header("Gráfico de Linha Empilhado")
 create_stacked_line_chart(df_filtrado)

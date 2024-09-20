@@ -32,8 +32,6 @@ Este projeto foi desenvolvido com o objetivo principal de realizar o processo de
   - `boto3`: Usada para se conectar ao Amazon S3 e realizar o upload do arquivo especificado para o bucket escolhido..
   - `streamlit`: Interface de visualização dos dados.
   - `streamlit_echarts`: Criação de gráficos dinâmicos e interativos.
-  
-  boto3 
 
 ## Instalação
 
